@@ -61,7 +61,7 @@ check-mycpp() {
 }
 
 check-doctools() {
-  if false; then
+  if true; then
     local -a files=(
       $(for x in doctools/*.py; do echo $x; done | grep -v '_test.py' )
       lazylex/html.py
@@ -73,7 +73,7 @@ check-doctools() {
 
   # 777 errors before pyann
   # 583 afterward
-  local -a flags=( --py2 --no-strict-optional --strict )
+  local -a flags=( --py2 --no-strict-optional --strict --follow-imports=silent )
   #local -a flags=( --py2 --no-strict-optional )
 
   set -x
